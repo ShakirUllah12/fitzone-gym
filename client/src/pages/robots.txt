@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://fitzone-gym-42vj.vercel.app/sitemap.xml
