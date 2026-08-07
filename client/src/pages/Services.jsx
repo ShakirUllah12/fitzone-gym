@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { API_BASE_URL } from '../config';
 
 function Services() {
@@ -26,24 +27,41 @@ function Services() {
 
   if (loading) {
     return (
-      <div className="flex flex-col items-center justify-center min-h-[400px]">
-        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-accent mb-4"></div>
-        <p className="text-slate-400 font-display uppercase tracking-widest text-sm">Loading our services...</p>
-      </div>
+      <>
+        <Helmet>
+          <title>Our Services | Gym Classes & Training in Islamabad</title>
+          <meta name="description" content="Explore FitZone Gym's services in Islamabad — weight training, cardio, personal training, group classes, yoga, and nutrition coaching." />
+        </Helmet>
+        <div className="flex flex-col items-center justify-center min-h-[400px]">
+          <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-accent mb-4"></div>
+          <p className="text-slate-400 font-display uppercase tracking-widest text-sm">Loading our services...</p>
+        </div>
+      </>
     );
   }
 
   if (error) {
     return (
-      <div className="max-w-2xl mx-auto bg-red-500/10 border border-red-500/20 text-red-200 p-6 rounded-2xl text-center my-12">
-        <p className="font-display font-bold uppercase tracking-wider mb-2">Error Loading Services</p>
-        <p className="text-sm text-red-300/80">{error}</p>
-      </div>
+      <>
+        <Helmet>
+          <title>Our Services | Gym Classes & Training in Islamabad</title>
+          <meta name="description" content="Explore FitZone Gym's services in Islamabad — weight training, cardio, personal training, group classes, yoga, and nutrition coaching." />
+        </Helmet>
+        <div className="max-w-2xl mx-auto bg-red-500/10 border border-red-500/20 text-red-200 p-6 rounded-2xl text-center my-12">
+          <p className="font-display font-bold uppercase tracking-wider mb-2">Error Loading Services</p>
+          <p className="text-sm text-red-300/80">{error}</p>
+        </div>
+      </>
     );
   }
 
   return (
-    <div>
+    <>
+      <Helmet>
+        <title>Our Services | Gym Classes & Training in Islamabad</title>
+        <meta name="description" content="Explore FitZone Gym's services in Islamabad — weight training, cardio, personal training, group classes, yoga, and nutrition coaching." />
+      </Helmet>
+      <div>
       <div className="text-center max-w-3xl mx-auto mb-16">
         <h1 className="font-display font-black text-4xl sm:text-5xl uppercase tracking-tight text-white mb-4">
           Our <span className="text-accent">Services</span>
@@ -62,7 +80,11 @@ function Services() {
             <div>
               {/* Card Header & Duration */}
               <div className="flex items-center justify-between mb-6">
-                <span className="text-accent text-3xl">
+                <span 
+                  className="text-accent text-3xl"
+                  role="img"
+                  aria-label={`${service.name} at FitZone Gym Islamabad`}
+                >
                   {service.icon === 'dumbbell' && '🏋️‍♂️'}
                   {service.icon === 'heartbeat' && '⚡'}
                   {service.icon === 'user-check' && '🤝'}
@@ -92,6 +114,7 @@ function Services() {
         ))}
       </div>
     </div>
+  </>
   );
 }
 

@@ -1,13 +1,13 @@
-const serverless = require('serverless-http');
+const mongoose = require('mongoose');
 const connectDB = require('../config/db');
 const app = require('../app');
 
-let isConnected = false;
-
 module.exports = async (req, res) => {
-  if (!isConnected) {
+  // Ensure database connection is active (1 = connected, 2 = connecting)
+  if (mongoose.connection.readyState !== 1 && mongoose.connection.readyState !== 2) {
     await connectDB();
-    isConnected = true;
   }
-  return serverless(app)(req, res);
+  
+  // Directly hand off execution to Express
+  app(req, res);
 };

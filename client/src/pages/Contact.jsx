@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { API_BASE_URL } from '../config';
 
 function Contact() {
@@ -52,7 +53,12 @@ function Contact() {
   };
 
   return (
-    <div>
+    <>
+      <Helmet>
+        <title>Contact Us | FitZone Gym Islamabad</title>
+        <meta name="description" content="Get in touch with FitZone Gym in Islamabad. Visit us, call, or send a message to start your fitness journey today." />
+      </Helmet>
+      <div>
       <div className="text-center max-w-3xl mx-auto mb-16">
         <h1 className="font-display font-black text-4xl sm:text-5xl uppercase tracking-tight text-white mb-4">
           Contact <span className="text-accent">Us</span>
@@ -214,6 +220,7 @@ function Contact() {
         </div>
       </div>
     </div>
+  </>
   );
 }
 

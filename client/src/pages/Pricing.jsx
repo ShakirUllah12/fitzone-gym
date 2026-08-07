@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 
 function Pricing() {
   const tiers = [
@@ -53,7 +54,12 @@ function Pricing() {
   ];
 
   return (
-    <div>
+    <>
+      <Helmet>
+        <title>Membership Pricing | FitZone Gym Islamabad</title>
+        <meta name="description" content="Affordable gym membership plans in Islamabad. Compare FitZone Gym's Basic, Standard, and Premium pricing tiers today." />
+      </Helmet>
+      <div>
       <div className="text-center max-w-3xl mx-auto mb-16">
         <h1 className="font-display font-black text-4xl sm:text-5xl uppercase tracking-tight text-white mb-4">
           Membership <span className="text-accent">Pricing</span>
@@ -119,6 +125,7 @@ function Pricing() {
         ))}
       </div>
     </div>
+  </>
   );
 }
 

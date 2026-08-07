@@ -1,9 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 
 function About() {
   return (
-    <div className="max-w-4xl mx-auto space-y-16">
+    <>
+      <Helmet>
+        <title>About Us | FitZone Gym Islamabad</title>
+        <meta name="description" content="Learn about FitZone Gym's mission, facilities, and expert trainers. A modern, community-focused fitness center in Islamabad." />
+      </Helmet>
+      <div className="max-w-4xl mx-auto space-y-16">
       {/* Title Header */}
       <div className="text-center max-w-3xl mx-auto">
         <h1 className="font-display font-black text-4xl sm:text-5xl uppercase tracking-tight text-white mb-4">
@@ -58,6 +64,7 @@ function About() {
         </div>
       </div>
     </div>
+  </>
   );
 }
 

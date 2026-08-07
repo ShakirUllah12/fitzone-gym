@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 import { API_BASE_URL } from '../config';
 
 function Home() {
@@ -26,8 +27,13 @@ function Home() {
   }, []);
 
   return (
-    <div className="space-y-24">
-      {/* Hero Section */}
+    <>
+      <Helmet>
+        <title>FitZone Gym | Best Gym in Islamabad</title>
+        <meta name="description" content="FitZone Gym offers weight training, personal training, yoga, and group classes in Islamabad. Modern equipment, expert trainers. Join today." />
+      </Helmet>
+      <div className="space-y-24">
+        {/* Hero Section */}
       <section className="relative overflow-hidden bg-slate-900 border border-slate-800 rounded-3xl p-12 sm:p-20 flex flex-col items-center text-center shadow-2xl">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_120%,rgba(249,115,22,0.15),transparent_60%)]"></div>
         <div className="relative z-10 max-w-3xl">
@@ -70,7 +76,7 @@ function Home() {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div className="bg-slate-900 border border-slate-800 p-8 rounded-2xl">
-            <div className="text-accent text-3xl mb-4">🏋️‍♀️</div>
+            <div className="text-accent text-3xl mb-4" role="img" aria-label="Premium Gear at FitZone Gym Islamabad">🏋️‍♀️</div>
             <h3 className="font-display font-bold text-lg text-white uppercase tracking-wide mb-3">Premium Gear</h3>
             <p className="text-slate-400 text-sm leading-relaxed">
               Equipped with elite mechanical hardware, free weight arrays, and dedicated recovery spaces for top-tier training.
@@ -78,7 +84,7 @@ function Home() {
           </div>
 
           <div className="bg-slate-900 border border-slate-800 p-8 rounded-2xl">
-            <div className="text-accent text-3xl mb-4">💪</div>
+            <div className="text-accent text-3xl mb-4" role="img" aria-label="Elite Coaches at FitZone Gym Islamabad">💪</div>
             <h3 className="font-display font-bold text-lg text-white uppercase tracking-wide mb-3">Elite Coaches</h3>
             <p className="text-slate-400 text-sm leading-relaxed">
               Work with verified, certified trainers specializing in biomechanics, athletic conditioning, and injury prevention.
@@ -86,7 +92,7 @@ function Home() {
           </div>
 
           <div className="bg-slate-900 border border-slate-800 p-8 rounded-2xl">
-            <div className="text-accent text-3xl mb-4">📈</div>
+            <div className="text-accent text-3xl mb-4" role="img" aria-label="Goal Oriented fitness tracking at FitZone Gym Islamabad">📈</div>
             <h3 className="font-display font-bold text-lg text-white uppercase tracking-wide mb-3">Goal Oriented</h3>
             <p className="text-slate-400 text-sm leading-relaxed">
               Custom progress reporting, body composition diagnostics, and nutrition planning that align perfectly with your workouts.
@@ -131,7 +137,11 @@ function Home() {
               >
                 <div>
                   <div className="flex items-center justify-between mb-6">
-                    <span className="text-accent text-2xl">
+                    <span 
+                      className="text-accent text-2xl"
+                      role="img"
+                      aria-label={`${service.name} at FitZone Gym Islamabad`}
+                    >
                       {service.icon === 'dumbbell' && '🏋️‍♂️'}
                       {service.icon === 'heartbeat' && '⚡'}
                       {service.icon === 'user-check' && '🤝'}
@@ -160,6 +170,7 @@ function Home() {
         )}
       </div>
     </div>
+  </>
   );
 }
 

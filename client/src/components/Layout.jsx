@@ -19,7 +19,7 @@ function Layout() {
       {/* Navigation Header */}
       <header className="sticky top-0 z-50 w-full bg-slate-900/90 backdrop-blur-md border-b border-slate-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-          <Link to="/" className="flex items-center gap-2 group">
+          <Link to="/" className="flex items-center gap-2 group" aria-label="FitZone Gym logo">
             <span className="w-3 h-8 bg-accent skew-x-[-15deg] block shadow-[0_0_15px_rgba(249,115,22,0.5)] transition-transform group-hover:scale-110"></span>
             <span className="font-display font-extrabold text-2xl uppercase tracking-wider text-white">
               FitZone <span className="text-accent">Gym</span>
@@ -87,7 +87,7 @@ function Layout() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
           {/* Column 1: About Blurb */}
           <div>
-            <Link to="/" className="flex items-center gap-2 mb-4">
+            <Link to="/" className="flex items-center gap-2 mb-4" aria-label="FitZone Gym logo">
               <span className="w-2.5 h-6 bg-accent skew-x-[-15deg] block"></span>
               <span className="font-display font-extrabold text-xl uppercase tracking-wider text-white">
                 FitZone <span className="text-accent">Gym</span>
