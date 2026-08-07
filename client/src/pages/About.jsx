@@ -21,7 +21,7 @@ function About() {
       </div>
 
       {/* Narrative Section 1 */}
-      <section className="bg-slate-900 border border-slate-800 rounded-2xl p-8 sm:p-12 space-y-6">
+      <section className="bg-slate-900 border border-slate-800 rounded-2xl p-6 sm:p-12 space-y-6">
         <h2 className="font-display font-bold text-2xl text-white uppercase tracking-wide border-b border-slate-850 pb-4">
           Our Story & Mission
         </h2>
@@ -34,7 +34,7 @@ function About() {
       </section>
 
       {/* Narrative Section 2: Facility */}
-      <section className="bg-slate-900 border border-slate-800 rounded-2xl p-8 sm:p-12 space-y-6">
+      <section className="bg-slate-900 border border-slate-800 rounded-2xl p-6 sm:p-12 space-y-6">
         <h2 className="font-display font-bold text-2xl text-white uppercase tracking-wide border-b border-slate-850 pb-4">
           Our Premium Facility
         </h2>
@@ -47,7 +47,7 @@ function About() {
       </section>
 
       {/* CTA Section */}
-      <div className="bg-slate-900 border border-slate-800 rounded-2xl p-8 sm:p-12 text-center max-w-2xl mx-auto space-y-6">
+      <div className="bg-slate-900 border border-slate-800 rounded-2xl p-6 sm:p-12 text-center max-w-2xl mx-auto space-y-6">
         <h3 className="font-display font-bold text-xl text-white uppercase tracking-wide">
           Ready to experience the difference?
         </h3>

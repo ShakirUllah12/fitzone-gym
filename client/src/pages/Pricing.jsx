@@ -69,13 +69,13 @@ function Pricing() {
         </p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch max-w-md mx-auto md:max-w-4xl lg:max-w-none justify-center">
         {tiers.map((tier) => (
           <div 
             key={tier.name}
             className={`flex flex-col justify-between bg-slate-900 border rounded-3xl p-8 relative transition-all duration-300 hover:-translate-y-2 ${
               tier.isPopular 
-                ? 'border-accent shadow-[0_0_30px_rgba(249,115,22,0.15)] md:scale-105 z-10' 
+                ? 'border-accent shadow-[0_0_30px_rgba(249,115,22,0.15)] lg:scale-105 z-10' 
                 : 'border-slate-800 hover:border-slate-700'
             }`}
           >

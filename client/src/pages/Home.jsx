@@ -32,18 +32,18 @@ function Home() {
         <title>FitZone Gym | Best Gym in Islamabad</title>
         <meta name="description" content="FitZone Gym offers weight training, personal training, yoga, and group classes in Islamabad. Modern equipment, expert trainers. Join today." />
       </Helmet>
-      <div className="space-y-24">
+      <div className="space-y-16 sm:space-y-24">
         {/* Hero Section */}
-      <section className="relative overflow-hidden bg-slate-900 border border-slate-800 rounded-3xl p-12 sm:p-20 flex flex-col items-center text-center shadow-2xl">
+      <section className="relative overflow-hidden bg-slate-900 border border-slate-800 rounded-3xl p-6 sm:p-20 flex flex-col items-center text-center shadow-2xl">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_120%,rgba(249,115,22,0.15),transparent_60%)]"></div>
         <div className="relative z-10 max-w-3xl">
           <span className="text-accent font-display font-black text-xs sm:text-sm uppercase tracking-widest bg-accent/10 px-4 py-1.5 rounded-full mb-6 inline-block border border-accent/20">
             Islamabad's Ultimate Fitness Center
           </span>
-          <h1 className="font-display font-black text-5xl sm:text-7xl uppercase tracking-tight text-white mb-6 leading-none">
+          <h1 className="font-display font-black text-4xl sm:text-6xl md:text-7xl uppercase tracking-tight text-white mb-6 leading-none">
             Forge Your <span className="text-accent">Ultimate Self</span>
           </h1>
-          <p className="text-slate-400 text-lg sm:text-xl mb-8 leading-relaxed">
+          <p className="text-slate-400 text-sm sm:text-base md:text-lg mb-8 leading-relaxed">
             State-of-the-art strength training, group conditioning, and professional coaching tailored to your body. Break barriers and build lasting results in a community built on grit.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -74,7 +74,7 @@ function Home() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-md mx-auto md:max-w-none">
           <div className="bg-slate-900 border border-slate-800 p-8 rounded-2xl">
             <div className="text-accent text-3xl mb-4" role="img" aria-label="Premium Gear at FitZone Gym Islamabad">🏋️‍♀️</div>
             <h3 className="font-display font-bold text-lg text-white uppercase tracking-wide mb-3">Premium Gear</h3>
@@ -129,7 +129,7 @@ function Home() {
             Failed to load featured services.
           </div>
         ) : (
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-md mx-auto sm:max-w-none lg:max-w-none">
             {featuredServices.map((service) => (
               <article 
                 key={service._id || service.slug}

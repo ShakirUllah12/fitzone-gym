@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link, Outlet, useLocation } from 'react-router-dom';
 
 function Layout() {
   const location = useLocation();
   const currentPath = location.pathname;
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const navLinks = [
     { name: 'Home', path: '/' },
@@ -48,31 +49,61 @@ function Layout() {
               })}
             </ul>
           </nav>
-
-          {/* Simple Mobile Navigation Indicator or CTA */}
-          <div className="md:hidden">
-            <Link to="/contact" className="bg-accent hover:bg-accent-hover text-white px-4 py-2 rounded-full font-display font-bold text-xs uppercase tracking-wide transition-colors">
-              Join Now
-            </Link>
-          </div>
+          
+          {/* Hamburger Menu Button */}
+          <button
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            className="md:hidden text-slate-400 hover:text-white focus:outline-none p-2 rounded-lg hover:bg-slate-800 transition-colors"
+            aria-label="Toggle navigation menu"
+            aria-expanded={isMenuOpen}
+          >
+            <svg 
+              className="w-6 h-6 transition-transform duration-300"
+              fill="none" 
+              viewBox="0 0 24 24" 
+              stroke="currentColor"
+            >
+              {isMenuOpen ? (
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M6 18L18 6M6 6l12 12" />
+              ) : (
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M4 6h16M4 12h16M4 18h16" />
+              )}
+            </svg>
+          </button>
         </div>
         
-        {/* Simple Mobile Nav Links Bar */}
-        <div className="md:hidden border-t border-slate-800 bg-slate-900 px-4 py-2">
-          <ul className="flex justify-between text-[11px] font-display font-bold uppercase tracking-wider">
+        {/* Hamburger Mobile Menu Dropdown */}
+        <div 
+          className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out border-t border-slate-800 bg-slate-900/95 backdrop-blur-lg ${
+            isMenuOpen ? 'max-h-[450px] opacity-100 py-6 border-b' : 'max-h-0 opacity-0 py-0 border-b-0'
+          }`}
+        >
+          <ul className="flex flex-col space-y-4 px-6">
             {navLinks.map((link) => {
               const isActive = currentPath === link.path;
               return (
                 <li key={link.path}>
                   <Link
                     to={link.path}
-                    className={isActive ? 'text-accent' : 'text-slate-400'}
+                    onClick={() => setIsMenuOpen(false)}
+                    className={`block font-display font-semibold text-sm uppercase tracking-wider transition-colors duration-200 py-2 ${
+                      isActive ? 'text-accent' : 'text-slate-400 hover:text-white'
+                    }`}
                   >
                     {link.name}
                   </Link>
                 </li>
               );
             })}
+            <li className="pt-4 border-t border-slate-800/80">
+              <Link 
+                to="/contact" 
+                onClick={() => setIsMenuOpen(false)}
+                className="block text-center bg-accent hover:bg-accent-hover text-white py-3 rounded-xl font-display font-bold text-sm uppercase tracking-wider transition-colors shadow-lg shadow-accent/15"
+              >
+                Join Now
+              </Link>
+            </li>
           </ul>
         </div>
       </header>
